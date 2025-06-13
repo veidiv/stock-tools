@@ -11,23 +11,11 @@
       <!-- Market Overview Section -->
       <MarketOverviewSection />
 
-      <!-- Placeholder for Watchlist Section -->
-      <div class="dashboard-section placeholder-section">
-        <h2 class="section-title">My Watchlist</h2>
-        <p class="placeholder-text">
-          <!-- WatchlistTable.vue component will go here -->
-          [Watchlist Table Placeholder]
-        </p>
-      </div>
+      <!-- Watchlist Section -->
+      <WatchlistSection class="dashboard-section" />
 
-      <!-- Placeholder for Market Movers Section -->
-      <div class="dashboard-section placeholder-section">
-        <h2 class="section-title">Market Movers</h2>
-        <p class="placeholder-text">
-          <!-- MarketMoversTabs.vue component will go here -->
-          [Market Movers Tabs Placeholder - Gainers, Losers, Active]
-        </p>
-      </div>
+      <!-- Market Movers Section -->
+      <MarketMoversSection class="dashboard-section" />
 
       <!-- Placeholder for News Feed Snippet -->
       <div class="dashboard-section placeholder-section">
@@ -48,9 +36,9 @@ import { onLoad, onShow, onReady, onHide, onUnload, onPullDownRefresh } from '@d
 
 import AppLayout from '@/layouts/AppLayout.vue';
 import MarketOverviewSection from '@/components/dashboard/MarketOverviewSection.vue';
+import WatchlistSection from '@/components/dashboard/WatchlistSection.vue';
+import MarketMoversSection from '@/components/dashboard/MarketMoversSection.vue';
 // Import other dashboard components when they are created, e.g.:
-// import WatchlistTable from '@/components/dashboard/WatchlistTable.vue';
-// import MarketMoversTabs from '@/components/dashboard/MarketMoversTabs.vue';
 // import NewsSnippetList from '@/components/dashboard/NewsSnippetList.vue';
 
 console.log('DashboardPage.vue: Script setup executed');
@@ -110,25 +98,37 @@ onUnmounted(() => {
      If AppLayout's slot is inside another div, then this padding might be useful.
      Adjust based on AppLayout.vue's structure.
   */
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Consistent spacing between dashboard sections */
 }
 
 .welcome-title {
   font-size: 24px;
   font-weight: bold;
   color: var(--text-color-primary, #333);
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */ /* Replaced by gap in parent */
   text-align: left;
 }
 
+/* The class .dashboard-section is now applied directly to the imported components.
+   The common styling for sections (background, padding, border-radius, box-shadow)
+   should ideally be part of the components themselves if they are meant to be card-like,
+   or defined here if DashboardPage dictates their appearance as sections.
+   For now, WatchlistSection and MarketMoversSection have their own titles and structure.
+   The margin-top from the original .dashboard-section class is handled by the gap property.
+*/
 .dashboard-section {
-  background-color: var(--card-bg-color, #ffffff);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: var(--card-shadow, 0 2px 8px rgba(0,0,0,0.05));
-  margin-top: 25px; /* Space between sections */
+  /* This class is applied to WatchlistSection and MarketMoversSection for consistent spacing */
+  /* If those components don't have their own card-like styling, uncomment these: */
+  /* background-color: var(--card-bg-color, #ffffff); */
+  /* padding: 20px; */
+  /* border-radius: 8px; */
+  /* box-shadow: var(--card-shadow, 0 2px 8px rgba(0,0,0,0.05)); */
 }
 
-.section-title { /* Styling for titles within placeholder sections */
+
+.placeholder-section .section-title { /* Styling for titles within placeholder sections */
   font-size: 18px;
   font-weight: 600;
   color: var(--text-color-primary, #333);
