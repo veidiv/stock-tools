@@ -1,0 +1,118 @@
+# Main Dashboard UI Textual Description
+
+## 1. Overall Layout & Aesthetics
+
+*   **Theme:** Modern and clean. Default light theme with an optional dark theme.
+*   **Spacing:** Generous spacing between elements to ensure clarity and reduce cognitive load. Avoid information clutter.
+*   **Typography:**
+    *   **Primary Font:** Lato (or Open Sans/Noto Sans as fallback) for its high legibility and modern feel.
+    *   **Font Weights:** Utilize a range of font weights (e.g., Light, Regular, Medium, Bold) to create visual hierarchy.
+    *   **Font Sizes:** Consistent and hierarchical font sizing. E.g., Section titles: 20px, Sub-section titles: 16px, Body text/data: 14px, Small text/labels: 12px.
+*   **Color Palette:**
+    *   **Light Theme:** Primary background: #FFFFFF or a very light grey like #F8F9FA. Content background: #FFFFFF. Text: Dark grey #333333. Accents: A professional blue (e.g., #007BFF) or teal.
+    *   **Dark Theme:** Primary background: Dark charcoal #1A1A1A or #222222. Content background: Slightly lighter grey #2C2C2C or #333333. Text: Light grey #E0E0E0. Accents: A bright, desaturated blue or teal.
+    *   **Semantic Colors:** Green (#28A745 or a custom vibrant green) for price up/positive change. Red (#DC3545 or a custom vibrant red) for price down/negative change.
+*   **Icons:** High-quality, consistent icon set (e.g., Feather Icons, Material Icons, or custom designed). SVG format for scalability.
+*   **Subtle Effects:**
+    *   Use of subtle gradients for backgrounds or highlights where appropriate, but not excessively.
+    *   Soft box shadows for cards or elevated elements to create depth.
+    *   Smooth transitions and animations for interactions (e.g., hover effects, tab switching).
+*   **Responsiveness:** The layout must be fully responsive, adapting gracefully to different screen sizes (desktop, tablet, mobile - though desktop is the primary focus for this detailed view).
+
+## 2. Main Navigation
+
+*   **Type:** Fixed Sidebar (left-hand side) for primary navigation. Collapsible to icons-only mode to save space.
+*   **Styling:**
+    *   Background color matching the overall theme (light/dark).
+    *   Clear visual separation from the main content area.
+*   **Navigation Items (Examples):**
+    *   Dashboard (Home)
+    *   Market (Detailed market views, heatmaps, sector analysis)
+    *   Charts (Full-screen charting tool)
+    *   Portfolio Tracker
+    *   News & Analysis
+    *   Alerts
+    *   Settings
+    *   User Profile/Logout (bottom of the sidebar)
+*   **Active State:** Clear indication of the currently active section (e.g., background highlight, accent color border).
+
+## 3. Main Content Area (Dashboard)
+
+### 3.1. Header Section
+
+*   **Global Search Bar:**
+    *   Position: Top right of the content area or centered in the top bar if a top bar is used in conjunction with a sidebar.
+    *   Appearance: Prominent, rounded input field with a clear search icon.
+    *   Functionality: Autocomplete suggestions for stock codes/names as the user types.
+*   **User Profile/Quick Settings:** Small icon or user avatar on the far right, possibly next to a theme toggle switch.
+
+### 3.2. Market Overview Section
+
+*   **Position:** Top of the main content area, below the header.
+*   **Layout:** Horizontal row of "cards" or panels, one for each major A-share index.
+*   **Indices Displayed:**
+    *   SSE Composite Index (上证指数)
+    *   SZSE Component Index (深证成指)
+    *   ChiNext Index (创业板指)
+    *   (Optional: SSE 50, CSI 300)
+*   **Content per Index Card:**
+    *   **Index Name:** Clearly displayed (e.g., "SSE Composite").
+    *   **Current Value:** Large font size, prominently displayed. Color-coded based on change (green/red).
+    *   **Change:** Absolute change and percentage change (e.g., "+15.20 (+0.50%)"). Color-coded.
+    *   **Mini Trendline Chart:** Small, sparkline-style chart showing the intraday trend or last few days' trend. Color of the line matches positive/negative trend.
+    *   **Subtle hover effect** on cards to show more details or quick links.
+
+### 3.3. Watchlist Section
+
+*   **Position:** Prominent section, typically below the Market Overview or occupying a significant portion of the main dashboard view.
+*   **Layout:** Tabular data display within a card or panel with a clear title (e.g., "My Watchlist").
+*   **Customization:**
+    *   Dropdown or tabs to switch between different user-created watchlists (e.g., "My Favorites," "Tech Stocks," "Long-term").
+    *   "Edit Watchlist" button/icon to manage stocks within the list and customize displayed columns.
+*   **Display Columns (Default):**
+    *   **Stock Name/Code:** (e.g., "贵州茅台 / 600519"). Name is primary, code is secondary but visible.
+    *   **Last Price:** Current traded price. Color-coded green/red based on change from previous close.
+    *   **Change / Change (%):** Absolute change and percentage change. Color-coded. (e.g., "+1.25 / +0.80%").
+    *   **Volume:** Trading volume for the current session.
+    *   **(Optional Columns):** Open, High, Low, P/E Ratio, Market Cap.
+*   **Row Styling:**
+    *   Alternating row colors for readability (subtle).
+    *   Visual cues for price up/down (e.g., green/red text for price and change, or small up/down arrow icons next to the price).
+*   **Quick Actions (on hover or dedicated column):**
+    *   **View Chart Icon:** Navigates to the detailed chart page for the stock.
+    *   **Add to Portfolio Icon:** Opens a modal to add the stock to a portfolio.
+    *   **Set Alert Icon:** Opens a modal to create a price or indicator alert for the stock.
+    *   **(Optional: Quick Buy/Sell buttons if broker integration is planned for the future).**
+
+### 3.4. Market Movers Section
+
+*   **Position:** Adjacent to or below the Watchlist section.
+*   **Layout:** Card-based with internal tabs.
+*   **Tabs:**
+    *   **Top Gainers:** Stocks with the highest positive percentage change.
+    *   **Top Losers:** Stocks with the highest negative percentage change.
+    *   **Most Active (Turnover):** Stocks with the highest trading turnover value.
+    *   **(Optional: Most Active (Volume), High Amplitude).**
+*   **Display Columns (similar to Watchlist):**
+    *   Stock Name/Code
+    *   Last Price
+    *   Change (%)
+    *   Volume or Turnover (depending on the tab)
+*   **Data Refresh:** Clearly indicate the last updated time for this data.
+
+### 3.5. News Feed Snippet Section
+
+*   **Position:** A more compact section, perhaps to the side or bottom of the main content area.
+*   **Layout:** A scrollable list of news headlines within a card.
+*   **Content:**
+    *   Shows 5-7 latest headlines.
+    *   Each item: Headline text (clickable, opens full article or source), source name, and timestamp (e.g., "2 min ago").
+*   **Filtering (Optional):** Tabs or dropdown to filter news by "Market News," "Watchlist News," "Portfolio News."
+*   **"View All News" Link:** Navigates to the dedicated News & Analysis section.
+
+## 4. Footer (Optional)
+
+*   **Content:** Copyright information, links to terms of service, privacy policy, contact, data provider attribution.
+*   **Styling:** Unobtrusive, small text.
+
+This textual description should guide the visual design and development process, ensuring all key informational and interactive elements are considered for a premium user experience.

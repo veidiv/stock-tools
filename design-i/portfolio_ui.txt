@@ -1,0 +1,129 @@
+# Portfolio Tracking Page UI Textual Description
+
+## 1. Overall Philosophy & Aesthetics
+
+*   **Consistency:** Adherence to the modern, clean, intuitive, and premium design principles established for the dashboard and charting interface.
+*   **Clarity:** Financial data must be presented in an easily understandable and accurate manner.
+*   **Actionability:** Users should be able to quickly assess performance and manage their holdings.
+*   **Typography & Colors:** Consistent with the overall application design (Lato/Open Sans/Noto Sans, defined light/dark themes, semantic colors for P&L).
+
+## 2. Portfolio Overview Section
+
+*   **Position:** Top of the portfolio tracking page, providing an immediate summary.
+*   **Layout:** A series of prominent "stat cards" or a well-spaced horizontal display.
+*   **Key Metrics Display:**
+    *   **Total Portfolio Value:** Largest font size in this section. Dynamically updated.
+    *   **Today's P&L:** Absolute value and percentage (e.g., "+¥1,250.75 (+0.58%)"). Color-coded green/red.
+    *   **Total P&L:** Absolute value and percentage (e.g., "+¥15,820.00 (+8.75%)"). Color-coded green/red.
+*   **Asset Allocation Visualization:**
+    *   **Type:** User's choice between a Pie Chart or a Bar Chart (with a toggle).
+    *   **Content:** Visual breakdown of portfolio holdings.
+        *   Default: By individual stock (showing percentage allocation per stock).
+        *   Optional: By sector (grouping stocks by their industry sector).
+    *   **Interactivity:** Hovering over a segment/bar shows stock name/sector and percentage. Clicking a segment might filter the holdings table below.
+    *   **Legend:** Clear legend for the chart.
+*   **Portfolio Management Actions:**
+    *   **"Add Transaction" Button:** Prominently displayed, opens the transaction entry modal (see Section 4).
+    *   **"Manage Portfolios" Dropdown/Link (if multiple portfolios supported):**
+        *   Allows switching between different portfolios (e.g., "Main Portfolio," "Retirement Fund").
+        *   Option to create a new portfolio or edit names of existing ones.
+        *   If a consolidated view is available, a link to it.
+
+## 3. Holdings Table Section
+
+*   **Position:** Main content area below the Portfolio Overview.
+*   **Layout:** Clean, well-spaced tabular data.
+*   **Title:** Clear title like "My Holdings."
+*   **Columns:**
+    *   **Stock Name/Code:** (e.g., "贵州茅台 / 600519"). Clickable, navigates to the stock's detailed chart/info page.
+    *   **Quantity:** Number of shares held.
+    *   **Avg. Buy Price:** Average price paid per share for the current holding.
+    *   **Current Price:** Latest market price. Color-coded based on today's change relative to previous close.
+    *   **Cost Basis:** Total amount paid for the current holding (Quantity * Avg. Buy Price).
+    *   **Market Value:** Current total value of the holding (Quantity * Current Price).
+    *   **Today's P&L:** Profit or loss for the day for that specific holding (value and percentage). Color-coded green/red.
+    *   **Total P&L (%):** Total profit or loss percentage for that holding ((Market Value - Cost Basis) / Cost Basis * 100%). Color-coded green/red.
+    *   **Total P&L (Value):** Total profit or loss value for that holding (Market Value - Cost Basis). Color-coded green/red.
+    *   **(Optional Columns):** Sector, Dividend Yield, % of Portfolio.
+*   **Row Styling:**
+    *   Alternating row colors for enhanced readability.
+    *   Clear visual cues (color and/or icons like up/down arrows) for positive/negative P&L figures.
+*   **Expandable Rows (Optional Detailed View):**
+    *   An icon (e.g., "+", ">") on each row to expand it.
+    *   Expanded area shows individual transaction lots that make up the holding (Date, Quantity, Buy Price per lot).
+*   **Actions Per Holding (on hover or dedicated "Actions" column with a kebab menu icon):**
+    *   **"Add/Remove Shares":** Opens the transaction modal, pre-filled with the stock code, allowing quick buy or sell of this specific stock.
+    *   **"View Chart":** Quick link to the detailed chart page for this stock.
+    *   **"Set Alert":** Quick link to set an alert for this stock.
+*   **Table Footer (Optional):** Totals for Cost Basis, Market Value, Today's P&L, and Total P&L for all holdings displayed.
+
+## 4. Transaction Entry & Management
+
+### 4.1. Transaction Modal/Page
+
+*   **Trigger:** Accessed via "Add Transaction" button or "Add/Remove Shares" action in holdings.
+*   **Layout:** Clean form with clearly labeled fields.
+*   **Fields:**
+    *   **Stock Code/Name:** Text input with auto-suggestion/search for A-share stocks. Selecting a stock populates its current price.
+    *   **Transaction Type:** Segmented control or dropdown (Buy / Sell).
+    *   **Date:** Date picker, defaults to today.
+    *   **Time (Optional):** Time picker, defaults to current time or market close.
+    *   **Quantity:** Numerical input.
+    *   **Price:** Price per share. Defaults to current market price for buys, can be manually overridden.
+    *   **Fees/Commissions (Optional):** Input for brokerage fees, taxes, etc. Can have a default setting.
+    *   **Notes (Optional):** Text area for user's notes about the transaction.
+*   **Calculations:** Dynamically shows "Total Amount" (Quantity * Price + Fees) as user types.
+*   **Confirmation:**
+    *   "Save Transaction" / "Confirm" button.
+    *   Clear success message upon saving. Error messages for invalid input (e.g., selling more shares than owned, non-numeric input).
+
+### 4.2. Transaction History Log
+
+*   **Access:** A separate tab within the Portfolio section or a dedicated page ("Transaction History").
+*   **Layout:** Tabular view of all recorded transactions.
+*   **Columns:** Date, Stock Name/Code, Type (Buy/Sell), Quantity, Price, Fees, Total Amount.
+*   **Filtering:**
+    *   Filter by stock.
+    *   Filter by date range (e.g., last month, YTD, custom range).
+    *   Filter by transaction type (Buy/Sell).
+*   **Sorting:** Sortable by any column.
+*   **Actions per Transaction (Optional):** Edit, Delete (with confirmation, as this affects portfolio calculations).
+
+## 5. Performance Metrics & Visualization
+
+*   **Position:** Can be a dedicated sub-section or integrated alongside the overview/holdings.
+*   **Historical Portfolio Value Chart:**
+    *   **Type:** Line chart.
+    *   **X-axis:** Time (e.g., daily, weekly, monthly points).
+    *   **Y-axis:** Total portfolio value.
+    *   **Functionality:** Shows the growth of the portfolio over a selected period (e.g., 1M, 3M, 6M, 1Y, All Time).
+    *   **Comparison (Optional):** Ability to overlay a benchmark index (e.g., SSE Composite) performance on the same chart.
+*   **Key Performance Indicators (KPIs):**
+    *   Displayed near the historical chart or in the overview section.
+    *   **Overall ROI (Return on Investment):** Clearly calculated and displayed.
+    *   **Annualized Return:** Calculated if sufficient historical data exists.
+    *   **(Optional):** Best/Worst performing holding, Sharpe ratio (if advanced).
+*   **Dividend Tracking Section (If Implemented):**
+    *   **Display:** A table or list of received dividends.
+    *   **Columns:** Date, Stock Name/Code, Dividend per Share, Total Dividend Received.
+    *   **Summary:** Total dividends received year-to-date or overall.
+    *   **Manual Entry:** Option to manually add dividend payments if not automatically captured.
+
+## 6. Layout & General Aesthetics
+
+*   **Information Hierarchy:** Clear visual distinction between the summary overview, the detailed holdings table, and performance charts. Use of cards, borders, or subtle background variations.
+*   **Readability:** Ample white space, appropriate font sizes for data tables.
+*   **Iconography:** Consistent with the rest of the application (e.g., icons for add, edit, delete, chart, alert).
+*   **Data Export:**
+    *   "Export to CSV" button for the holdings table and transaction history.
+*   **Empty States:** Well-designed empty states for when there are no portfolios, no holdings, or no transactions (e.g., "No transactions yet. Add your first one to get started!").
+
+## 7. Multiple Portfolio Support (If Applicable)
+
+*   **Switching:** A clear dropdown menu or tabbed interface at the top of the page to select the active portfolio.
+*   **Naming:** Users can name their portfolios (e.g., "Tech Growth," "Dividend Income").
+*   **Consolidated View (Optional "All Portfolios" View):**
+    *   Shows combined total value, today's P&L, total P&L for all portfolios.
+    *   May list individual portfolio summaries or a combined (but still distinguishable) list of all holdings from all portfolios.
+
+This detailed description aims to create a comprehensive, user-friendly, and visually appealing portfolio tracking experience.

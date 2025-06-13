@@ -1,0 +1,129 @@
+# Custom Alerts UI Textual Description
+
+## 1. Overall Philosophy & Aesthetics
+
+*   **Consistency:** Adherence to the established modern, clean, intuitive, and premium design principles of the application.
+*   **Clarity:** Alert conditions, statuses, and management options must be unambiguous and easy to understand.
+*   **Control:** Users should feel in complete control of the alerts they set up and how they are notified.
+*   **Timeliness:** The interface should support the timely delivery and visibility of triggered alerts.
+*   **Typography & Colors:** Consistent with the overall application design. Semantic colors will be important for indicating alert status (e.g., green for active, yellow/orange for triggered, grey for inactive).
+
+## 2. Alert Management Dashboard
+
+*   **Access:** A dedicated "Alerts" section accessible from the main application navigation.
+*   **Page Title:** Prominent title, e.g., "My Alerts."
+*   **Layout:**
+    *   A main "Create New Alert" button clearly visible at the top.
+    *   A tabbed interface or segmented controls to switch between views:
+        *   "Active Alerts" (default view)
+        *   "Triggered Alerts"
+        *   "Inactive/Expired Alerts"
+*   **Alerts Table/List Display (for Active, Triggered, Inactive views):**
+    *   **Columns/Elements per alert item:**
+        *   **Stock Code/Name:** (e.g., "贵州茅台 / 600519"). Clickable, navigates to stock's detailed page.
+        *   **Alert Condition:** Concise description of the trigger (e.g., "Price > ¥1800.00", "RSI(14) < 30", "News contains 'dividend'").
+        *   **Type:** Icon or text indicating Price, Indicator, or News alert.
+        *   **Status:** (e.g., "Active," "Triggered," "Inactive," "Expired"). Visually distinct (color-coding or badges).
+        *   **Creation Date:** Date the alert was set up.
+        *   **Triggered Date/Time (for Triggered Alerts view):** When the alert condition was met.
+    *   **Actions per Alert (on hover or dedicated "Actions" column with a kebab menu):**
+        *   **Edit:** Opens the alert creation/editing modal with pre-filled details.
+        *   **Delete:** Removes the alert (with confirmation).
+        *   **Snooze (for Triggered Alerts):** Temporarily dismisses the notification and moves it to inactive or keeps it triggered but acknowledged. Option for snooze duration (e.g., 1 hour, 1 day).
+        *   **Reactivate (for Inactive/Expired Alerts):** Moves the alert back to the Active list, potentially requiring confirmation or edit of conditions if market conditions have changed significantly.
+        *   **View Chart (for Price/Indicator alerts):** Jumps to the chart for the stock, perhaps with the alert level or indicator highlighted.
+*   **Filtering Options:**
+    *   **Location:** A filter bar above the alerts list.
+    *   **Filter by Stock:** Search/select specific stocks.
+    *   **Filter by Alert Type:** (Price, Technical Indicator, News).
+    *   **Filter by Status (within a combined view if tabs are not used):** (Active, Triggered, Inactive).
+*   **Empty State:** Clear message when no alerts are set up in a particular view (e.g., "You have no active alerts. Create one now!").
+
+## 3. Creating/Editing an Alert (Modal or Separate Page)
+
+*   **Access:** Via "Create New Alert" button or "Edit" action on an existing alert. A modal is generally preferred for quick setup.
+*   **Title:** "Create New Alert" or "Edit Alert."
+*   **Form Layout:** Well-structured form with clear sections.
+
+### 3.1. Stock Selection
+    *   **Field:** "Stock Code/Name" - Text input with real-time search and auto-suggestion from the A-share market list. Displays selected stock's current price for reference.
+
+### 3.2. Alert Type Selection
+    *   **Control:** Prominent radio buttons, segmented control, or large clickable cards for:
+        *   "Price Alert"
+        *   "Technical Indicator Alert"
+        *   "News Alert"
+    *   Selecting an alert type dynamically changes the subsequent form fields.
+
+### 3.3. Condition Setup - Price Alert
+    *   **Condition Dropdown:** "Notify me when..."
+        *   "Price is Above"
+        *   "Price is Below"
+        *   "Price Reaches"
+        *   "Daily % Change is Up by"
+        *   "Daily % Change is Down by"
+    *   **Value Input:** Numerical input field for the target price or percentage. Validation to ensure sensible values.
+    *   **Reference:** Show current price/percentage change alongside for context.
+
+### 3.4. Condition Setup - Technical Indicator Alert (Advanced)
+    *   **Indicator Selection Dropdown:** List of available indicators (e.g., MA, EMA, MACD, RSI, Bollinger Bands, KDJ, Volume).
+    *   **Indicator Parameters:** Upon selecting an indicator, relevant parameter fields appear (e.g., Period for MA, Fast/Slow/Signal periods for MACD). Default values provided.
+    *   **Condition Dropdown:** Specific to the selected indicator. Examples:
+        *   MA: "Price Crosses Above MA(Period)", "Price Crosses Below MA(Period)", "MA(Fast) Crosses Above MA(Slow)".
+        *   RSI: "RSI Enters Oversold (< Value)", "RSI Exits Oversold (> Value)", "RSI Enters Overbought (> Value)", "RSI Exits Overbought (< Value)".
+        *   MACD: "MACD Line Crosses Above Signal Line", "MACD Line Crosses Below Signal Line", "MACD Histogram Turns Positive/Negative".
+    *   **Value Input(s):** For thresholds (e.g., RSI level) or specific values.
+    *   **Chart Preview (Optional but highly useful):** A mini-chart showing the selected stock and indicator, visually aiding in setting the alert.
+
+### 3.5. Condition Setup - News Alert
+    *   **Keywords Input:** Text field to enter keywords or phrases to monitor (e.g., "dividend," "earnings warning," "new product").
+    *   **Scope (Optional):**
+        *   "For [Selected Stock] only"
+        *   "Across all market news" (if general keyword alerts are supported)
+    *   **Source (Optional):** Filter by specific news sources or company announcements.
+
+### 3.6. Notification Method
+    *   **Checkboxes or Toggles:**
+        *   "In-App Notification" (Standard, non-dismissible until acknowledged)
+        *   "Email Notification" (If user has verified email)
+        *   "Push Notification" (If a mobile companion app exists and permissions are granted)
+        *   "SMS Alert" (Potentially a premium feature, requires phone number verification and consent)
+    *   Users can select multiple methods.
+
+### 3.7. Alert Frequency/Persistence
+    *   **Dropdown/Radio Buttons:**
+        *   "One-Time": Alert triggers once and then becomes inactive/triggered.
+        *   "Persistent": Alert triggers, notifies, and then automatically reactivates to trigger again if the condition is met later (unless manually disabled). Use with caution for volatile conditions.
+    *   **Expiration Date (Optional):** Calendar input to set a date when the alert should automatically become inactive.
+
+### 3.8. Alert Name/Note (Optional)
+    *   **Text Input:** "Label this alert (e.g., 'Buy point for XXX')" - For user's own reference in the management dashboard.
+
+### 3.9. Action Buttons
+    *   "Save Alert" / "Set Alert" / "Update Alert"
+    *   "Cancel"
+
+## 4. Triggered Alerts View & Notifications
+
+*   **In-App Notification System:**
+    *   **Real-time Pop-up/Toast:** Non-intrusive notification appearing briefly when an alert triggers while the app is open. Shows stock, condition met. Clicking it navigates to the triggered alerts list or the stock chart.
+    *   **Notification Center/Bell Icon:** A persistent indicator (e.g., a bell icon in the header with a badge) showing the count of unread triggered alerts. Clicking it opens the "Triggered Alerts" view or a dropdown list of recent triggers.
+*   **"Triggered Alerts" Tab/Page (as part of Alert Management Dashboard):**
+    *   Lists all alerts that have met their conditions.
+    *   Columns: Stock, Condition Met, Alert Type, Time of Trigger.
+    *   **Quick Actions:**
+        *   "View Chart": Navigates to the stock's chart, potentially highlighting the trigger point.
+        *   "Go to Stock": Navigates to the stock's main information page.
+        *   "Dismiss": Acknowledges the alert, removes it from the "newly triggered" state (may move to Inactive or a logged history).
+        *   "Snooze": (As described in section 2).
+
+## 5. UI Aesthetics
+
+*   **Visual Cues:**
+    *   Icons for different alert types (e.g., price tag for Price, graph for Indicator, newspaper for News).
+    *   Color-coding for status: Active (e.g., green), Triggered (e.g., yellow/orange), Inactive (e.g., grey).
+*   **Forms:** Intuitive and uncluttered, with clear labels and input fields. Use steppers or sliders for numerical inputs where appropriate.
+*   **Feedback:** Clear confirmation messages (e.g., "Alert created successfully," "Alert deleted"). Error messages should be specific and helpful.
+*   **Consistency:** Buttons, icons, modals, and form elements should follow the application's overall style guide.
+
+This detailed description aims to cover all aspects of a robust and user-friendly custom alerts system.

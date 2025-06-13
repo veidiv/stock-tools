@@ -1,0 +1,139 @@
+# K-Line (Candlestick) Charting Interface UI Textual Description
+
+## 1. Overall Philosophy & Aesthetics
+
+*   **Consistency:** Maintain the modern, clean, intuitive, and premium feel established in the `dashboard_ui.txt`.
+*   **Focus:** The chart itself is the hero element. UI controls should be accessible but unobtrusive.
+*   **Performance:** Smooth rendering, zooming, and panning are paramount for a good user experience.
+*   **Clarity:** Data, indicators, and drawing tools must be presented clearly and be easy to interpret.
+*   **Typography & Colors:** Consistent with the overall application design (Lato/Open Sans/Noto Sans, defined light/dark themes, semantic colors for up/down trends).
+
+## 2. Chart Area
+
+*   **Primary Display:** Large, prominent area dedicated to the candlestick chart.
+*   **Candlestick Rendering:** Crisp, clear candles.
+    *   **Up-candle color:** Green (e.g., #28A745 or theme-specific green).
+    *   **Down-candle color:** Red (e.g., #DC3545 or theme-specific red).
+    *   Wicks clearly visible.
+*   **Timeframe Selection:**
+    *   **Location:** Highly visible, typically a horizontal bar or segmented control above or directly to the side of the chart.
+    *   **Options:** 1min, 5min, 15min, 30min, 1H, 4H, Daily, Weekly, Monthly, Custom Range.
+    *   **Interaction:** Single click to change timeframe. Clear visual indication of the active timeframe.
+*   **Zoom and Pan:**
+    *   **Mouse/Touch:** Scroll wheel/pinch for zoom, click-and-drag/swipe for pan.
+    *   **Explicit Buttons:** Small "+" and "-" buttons for zoom, and potentially directional arrows for pan, located subtly on the chart (e.g., bottom right corner).
+*   **Volume Chart:**
+    *   **Default:** Integrated as a separate panel directly below the main price chart, sharing the same time axis.
+    *   **Volume Bar Colors:** Typically, green if the price closed up for the period, red if down. Or, a neutral color with opacity reflecting volume intensity.
+    *   **Optional Overlay:** Ability to overlay volume bars on the price chart with transparency (less common for dedicated volume, more for specific volume indicators).
+*   **OHLC Value Display (Tooltip/Crosshair):**
+    *   When the user hovers over the chart or a specific candle (especially with crosshair active):
+        *   A tooltip or a dedicated info box appears, showing:
+            *   Date/Time of the candle
+            *   Open, High, Low, Close prices
+            *   Volume for that period
+            *   Percentage change
+            *   Values of any active technical indicators for that point.
+    *   **Crosshair:** A vertical and horizontal line that follows the cursor, with price and time axis labels highlighted.
+*   **Stock Name/Code Watermark:**
+    *   Subtly displayed on the chart background (e.g., top-left or center, low opacity). Example: "贵州茅台 / 600519 - Daily".
+*   **Price Axis (Y-axis):**
+    *   Clearly labeled with price values. Dynamically adjusts as the user pans/zooms.
+    *   Option for linear and logarithmic scale.
+*   **Time Axis (X-axis):**
+    *   Clearly labeled with dates/times appropriate for the selected timeframe. Dynamically adjusts.
+*   **Loading State:** Visual indicator (e.g., spinner or progress bar) when loading new chart data.
+
+## 3. Technical Indicators Panel/Controls
+
+*   **Access:**
+    *   A dedicated "Indicators" button or icon (e.g., f(x) symbol) in the chart's toolbar (see section 5).
+    *   Clicking this opens a modal dialog or a sidebar panel.
+*   **Indicator List & Search:**
+    *   The modal/panel displays a scrollable and searchable list of available technical indicators.
+    *   Indicators grouped by type (e.g., Trend, Momentum, Volume, Volatility).
+    *   Each list item: Indicator name (e.g., "Moving Average," "RSI"), and a brief description on hover/focus.
+*   **Adding Indicators:** Clicking an indicator from the list adds it to the chart.
+*   **Customizing Parameters:**
+    *   Once an indicator is added, users can click a settings icon next to its name (either on the chart legend or in an "Active Indicators" list).
+    *   This opens a small form/modal to adjust parameters (e.g., period for MA, lengths for MACD, levels for RSI).
+    *   Input fields for numerical values, dropdowns for options (e.g., SMA/EMA type).
+    *   Real-time preview on the chart as parameters are adjusted is ideal.
+*   **Display on Chart:**
+    *   **Overlays:** Indicators like MAs, EMAs, Bollinger Bands are drawn directly over the price chart.
+    *   **Separate Panes:** Indicators like MACD, RSI, Stochastic Oscillator are displayed in their own resizable panes below the main price chart (and below the volume chart if present). Each pane has its own Y-axis.
+*   **Indicator Legend:**
+    *   Clearly displayed on the chart (usually top-left, below the stock info).
+    *   Shows the name and current values of active indicators. E.g., "MA(20): 150.50", "RSI(14): 65.00".
+    *   Colors in the legend match the indicator lines on the chart.
+    *   Ability to quickly show/hide or remove an indicator from the legend (e.g., eye icon, 'x' icon).
+
+## 4. Drawing Tools Toolbar
+
+*   **Access:** A vertical or horizontal toolbar, typically on the left side or top of the chart area. Can be a floating toolbar.
+*   **Icon-based:** Uses clear icons for each drawing tool.
+*   **Available Tools (Examples):**
+    *   Crosshair (toggle)
+    *   Trendline
+    *   Horizontal Line (Support/Resistance)
+    *   Vertical Line
+    *   Ray / Extended Line
+    *   Channel (Parallel lines)
+    *   Fibonacci Retracement
+    *   Fibonacci Extension
+    *   Pitchfork
+    *   Rectangle / Ellipse (for highlighting areas)
+    *   Text Annotation
+    *   Arrow / Marker
+*   **Interaction:**
+    *   Click an icon to select a tool. The icon remains highlighted.
+    *   Click on the chart to place the first point, then click again for subsequent points as needed by the tool.
+    *   Visual feedback during drawing (e.g., line preview).
+*   **Customization of Drawn Objects:**
+    *   After drawing an object, selecting it (by clicking on it) should reveal handles for resizing/moving and a small context menu or toolbar to change:
+        *   Line color
+        *   Line thickness
+        *   Line style (solid, dashed, dotted)
+        *   Font size/color (for text annotations)
+*   **Selection and Deletion:**
+    *   Easy to select drawn objects by clicking on them.
+    *   "Delete" key or a dedicated "trash" icon in the context menu or drawing toolbar to remove selected object(s).
+    *   Option to "Clear all drawings."
+
+## 5. Chart Controls & Settings Bar
+
+*   **Location:** A consolidated toolbar, typically located directly above the chart or integrated with the timeframe selector.
+*   **Contents:**
+    *   **Timeframe Selector** (as described in 2.1)
+    *   **Chart Type Button/Dropdown:** Candlestick (default), Line, Bar, (Optional: Heikin Ashi, Area). Icon-based selection.
+    *   **Indicators Button:** (as described in 3.1)
+    *   **Drawing Tools Toggle:** Button to show/hide the drawing tools toolbar (if it's not permanently visible).
+    *   **Chart Settings Button (Cog Icon):** Opens a modal or dropdown for detailed chart settings:
+        *   **Appearance:**
+            *   Customize up/down candle colors, wick colors, border colors.
+            *   Background color.
+            *   Grid line visibility and color.
+            *   Crosshair color and style.
+            *   Axis text color and size.
+        *   **Data Settings:**
+            *   Toggle visibility of pre-market / post-market data (if applicable).
+            *   Enable/disable dividend adjustment on historical prices.
+            *   Enable/disable stock split adjustment.
+        *   **Scales:**
+            *   Price scale: Linear, Logarithmic.
+            *   Auto-scale Y-axis on/off.
+    *   **Save/Load Chart Layout Button:** Allows users to save their current chart setup (indicators, drawings, timeframe) and load previous layouts.
+    *   **Fullscreen Toggle Button:** Expands the chart to fill the entire screen.
+    *   **Screenshot/Export Button:** Captures the current chart view as an image (e.g., PNG).
+
+## 6. Layout in Context (If part of a larger view)
+
+*   **Primacy:** The chart area should occupy the largest portion of the view (e.g., 60-70% of the available space).
+*   **Surrounding Information (Example - Stock Detail Page):**
+    *   **Left/Right Panel:** Could contain stock details (name, current price, P/E, market cap), order book snippet, recent news for the stock, quick trade entry form. This information should be compact and not distract from the chart.
+    *   **Below Chart:** Could be a tabbed section for deeper fundamental data, analyst ratings, corporate actions, etc.
+*   **Responsive Adaptation:**
+    *   On smaller screens, side panels might collapse or become tabs.
+    *   The chart itself should resize gracefully, potentially simplifying some controls or making toolbars more compact. Priority is always given to the chart display area.
+
+By detailing these aspects, the charting interface aims to be powerful, customizable, and user-friendly, catering to both novice and experienced traders while maintaining a premium aesthetic.

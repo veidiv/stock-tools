@@ -1,0 +1,128 @@
+# News, Announcements & Economic Calendar UI Textual Description
+
+## 1. Overall Philosophy & Aesthetics
+
+*   **Consistency:** Uphold the modern, clean, intuitive, and premium design language used across the application.
+*   **Readability:** Prioritize ease of reading and information absorption, especially for text-heavy content.
+*   **Organization:** Structure information logically so users can quickly find what they need.
+*   **Typography & Colors:** Consistent with the overall application design (Lato/Open Sans/Noto Sans, defined light/dark themes). Use semantic colors sparingly, primarily for status or importance indicators.
+
+## 2. Main News Feed Page (Dedicated "News" Section)
+
+*   **Navigation:** Typically accessed via the main application navigation sidebar/top bar.
+*   **Page Title:** Prominent title, e.g., "Market News & Analysis."
+*   **Layout Options (User-selectable, with a default):**
+    *   **List View (Default):**
+        *   Each news item is a row.
+        *   Columns/Elements per row:
+            *   **Read/Unread Indicator:** Small dot or subtle background change.
+            *   **Headline:** Bold, primary focus. Clickable to open Article View.
+            *   **Source:** Name of the news provider (e.g., "Xinhua Finance," "Caixin").
+            *   **Timestamp:** How long ago it was published (e.g., "2h ago," "Yesterday," or specific date).
+            *   **Brief Snippet:** 1-2 lines of the article's beginning to provide context.
+            *   **Tags/Categories (Optional):** Small tags indicating relevance (e.g., "Tech Sector," "Earnings Report").
+            *   **Thumbnail Image (Optional):** If available from the source, a small image aligned with the text.
+    *   **Card View:**
+        *   Each news item is a card.
+        *   Cards arranged in a grid or masonry layout.
+        *   Elements per card:
+            *   **Main Image (if available):** Prominently displayed at the top of the card.
+            *   **Headline:** Below the image.
+            *   **Snippet:** Shorter than in list view.
+            *   **Source & Timestamp:** Subtly at the bottom of the card.
+            *   **Read/Unread Indicator.**
+*   **Filtering and Sorting Controls:**
+    *   **Location:** A dedicated filter bar/panel, typically at the top of the news feed or in a collapsible sidebar.
+    *   **Filter by Category:** Dropdown or tabs. Examples:
+        *   "All News"
+        *   "General Market"
+        *   "Sector News" (further drill-down by sector if possible)
+        *   "My Watchlist News" (news related to stocks in user's watchlists)
+        *   "My Portfolio News" (news related to stocks in user's portfolios)
+    *   **Filter by Source (If multiple distinct providers integrated):** Checkboxes or multi-select dropdown.
+    *   **Sort By:** Dropdown. Options:
+        *   "Latest First" (default)
+        *   "Oldest First"
+        *   "Relevance" (if search is active)
+*   **Search Functionality:**
+    *   **Search Bar:** Prominently placed within the News section.
+    *   **Scope:** Searches within headlines and article content.
+    *   **Results:** Updates the feed to show matching articles.
+*   **Pagination/Infinite Scroll:** For navigating through a large number of articles.
+*   **"Mark All as Read" Button:** Useful for users who want to clear unread indicators.
+
+## 3. Article View
+
+*   **Access:** Clicking a headline from the Main News Feed Page. Can open in a modal (for quick reads), a new page, or a master-detail view. A dedicated page is often better for focused reading.
+*   **Layout:** Single-column, focused on the article content. Ample margins.
+*   **Content Elements:**
+    *   **Headline:** Large and clear at the top.
+    *   **Source & Author:** Displayed below the headline (e.g., "Source: Reuters / Author: John Doe").
+    *   **Publication Date & Time:** Clearly visible.
+    *   **Main Article Body:**
+        *   Clean, highly legible font (consistent with app's body font).
+        *   Appropriate line height and paragraph spacing.
+        *   Images or videos embedded within the content should be responsive.
+    *   **Tags/Keywords:** Displayed at the end of the article, clickable to find related news.
+*   **Readability Features:**
+    *   **Font Size Adjustment:** Controls (e.g., A-/A+ buttons) to increase/decrease font size.
+    *   **Theme Consistency:** Adheres to the user's selected light/dark theme.
+*   **Related Articles Section:**
+    *   Displayed below the main article content or in a sidebar.
+    *   Lists 3-5 headlines of articles on similar topics or related to the same stock/sector.
+*   **Social Sharing Options (Optional):**
+    *   Subtle icons for sharing on popular platforms (e.g., WeChat, Weibo, Twitter, LinkedIn).
+*   **Navigation:** Clear "Back" button to return to the news feed. Breadcrumbs if the view is deep.
+
+## 4. Company Announcements Section
+
+*   **Access:** Typically a dedicated tab within the "News" section or a sub-section under a stock's detailed view.
+*   **Page Title:** e.g., "Company Announcements" or "Listed Company Filings."
+*   **Layout:** Tabular list, prioritizing clarity and quick access to documents.
+*   **Search/Filter:**
+    *   **Search by Stock Code/Company Name:** Primary way to find specific announcements.
+    *   **Filter by Announcement Type (Optional):** Dropdown (e.g., "Financial Reports," "Shareholder Meetings," "Suspension/Resumption").
+    *   **Filter by Date Range.**
+*   **Table Columns:**
+    *   **Date:** Publication date of the announcement.
+    *   **Time:** Publication time.
+    *   **Stock Code:**
+    *   **Stock Name:**
+    *   **Announcement Title/Headline:** Official title of the filing.
+    *   **Link/Source:** Direct link to the PDF document or the official source page (e.g., exchange website). An icon indicating it's a PDF link.
+*   **Sorting:** Sortable by date (default newest first), stock code.
+*   **Pagination:** For navigating through numerous announcements.
+
+## 5. Economic Calendar Section
+
+*   **Access:** Typically a dedicated tab within the "News" section or its own top-level item if deemed important enough.
+*   **Page Title:** e.g., "Economic Calendar."
+*   **Layout:** Tabular list of economic events.
+*   **Date Navigation:**
+    *   Quick filters for "Today," "Tomorrow," "This Week," "Next Week."
+    *   A calendar control to select specific dates or date ranges.
+*   **Table Columns:**
+    *   **Date:** Date of the event.
+    *   **Time:** Time of the event (clearly specify timezone, or convert to user's local time).
+    *   **Country/Region:** Flag icon and name (e.g., "China," "USA").
+    *   **Event Name:** Description of the economic data point (e.g., "GDP Growth Rate YoY," "Manufacturing PMI," "CPI MoM").
+    *   **Impact:** Visual indicator of expected market impact (e.g., Low, Medium, High, often represented by color-coded icons like 1 to 3 bull heads or similar).
+    *   **Actual:** The reported value (updated after release).
+    *   **Forecast:** The consensus forecast value.
+    *   **Previous:** The value from the previous period.
+*   **Filtering:**
+    *   **By Country/Region:** Select multiple countries.
+    *   **By Impact Level:** Select impact levels to display.
+    *   **By Category (Optional):** E.g., Inflation, Employment, GDP, Central Bank.
+*   **Event Details (Optional):** Clicking an event might expand to show a brief explanation of the indicator or a historical chart.
+
+## 6. UI Aesthetics & Common Elements
+
+*   **Whitespace:** Generous use to ensure content is not cramped and is easy to scan.
+*   **Typography Hierarchy:** Clear distinction between headlines, sub-headlines, body text, and metadata (source, date).
+*   **Icons:** Consistent icon set for actions (e.g., search, filter, external link, PDF), categories, and impact levels.
+*   **Loading States:** Visual feedback (spinners, placeholders) when data is being fetched.
+*   **Empty States:** Informative messages if no news/announcements/events match filters or for initial loading.
+*   **Responsiveness:** All sections must be responsive and usable on various screen sizes.
+
+This structure aims to provide users with comprehensive and easily digestible information regarding market news, official announcements, and key economic indicators.
