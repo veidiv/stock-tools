@@ -1,0 +1,59 @@
+{
+  "pages": [
+    {
+      "path": "src/pages/dashboard/DashboardPage", // Path to the main dashboard page
+      "style": {
+        "navigationBarTitleText": "Dashboard", // Default title for this page
+        "enablePullDownRefresh": false
+        // Specific styles for DashboardPage can be added here
+      }
+    }
+    // Other pages will be added here, for example:
+    // {
+    //   "path": "src/pages/market/MarketPage",
+    //   "style": {
+    //     "navigationBarTitleText": "Market"
+    //   }
+    // },
+    // {
+    //   "path": "src/pages/auth/LoginPage",
+    //   "style": {
+    //     "navigationBarTitleText": "Login",
+    //     "navigationStyle": "custom" // Example for custom navigation bar (no default header)
+    //   }
+    // }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black", // "black" or "white"
+    "navigationBarTitleText": "A-Share Stock Tool", // Default title for all pages if not overridden
+    "navigationBarBackgroundColor": "#FFFFFF", // Default background color for navigation bar
+    "backgroundColor": "#F8F9FA", // Default background color for window, pull-to-refresh
+    "backgroundTextStyle": "dark", // "dark" or "light" for pull-to-refresh loading icon style
+    "enablePullDownRefresh": false, // Disable global pull-down-refresh, can be enabled per page
+    "rpxCalcMaxDeviceWidth": 960, // Default: 960, for rpx calculation
+    "rpxCalcBaseDeviceWidth": 375 // Default: 375, for rpx calculation
+    // "app-plus": { // Specific settings for App plus (native)
+    //   "bounce": "none" // Disable iOS rubber band scrolling effect
+    // }
+  }
+  // "tabBar": { // TabBar configuration (currently commented out for simplicity)
+  //   "color": "#7A7E83",
+  //   "selectedColor": "#007AFF",
+  //   "borderStyle": "black",
+  //   "backgroundColor": "#FFFFFF",
+  //   "list": [
+  //     {
+  //       "pagePath": "src/pages/dashboard/DashboardPage",
+  //       "iconPath": "static/tabs/dashboard_default.png",
+  //       "selectedIconPath": "static/tabs/dashboard_active.png",
+  //       "text": "Dashboard"
+  //     },
+  //     {
+  //       "pagePath": "src/pages/market/MarketPage",
+  //       "iconPath": "static/tabs/market_default.png",
+  //       "selectedIconPath": "static/tabs/market_active.png",
+  //       "text": "Market"
+  //     }
+  //   ]
+  // }
+}

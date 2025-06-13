@@ -1,0 +1,157 @@
+/* uni.scss */
+/* This file is automatically imported by uni-app. */
+/* You can define global SCSS variables and mixins here. */
+
+/* Default Theme Variables (Consider these as Light Theme) */
+/* It's a good practice to prefix your custom variables, e.g., --app-primary-color */
+
+/* Colors */
+$uni-color-primary: #007bff; // Main brand color
+$uni-color-success: #28a745;
+$uni-color-warning: #ffc107;
+$uni-color-error: #dc3545;
+$uni-color-info: #17a2b8;
+
+/* Background Colors */
+$uni-bg-color: #ffffff; // Default background for pages/components
+$uni-bg-color-grey: #f8f9fa; // Lighter grey for slightly different backgrounds
+$uni-bg-color-hover: #e9ecef; // Hover state background
+$uni-bg-color-disabled: #e9ecef; // Disabled state background
+
+/* Text Colors */
+$uni-text-color: #212529; // Main text color
+$uni-text-color-inverse: #ffffff; // Text color for dark backgrounds
+$uni-text-color-grey: #6c757d; // Secondary text color
+$uni-text-color-placeholder: #6c757d;
+$uni-text-color-disabled: #6c757d;
+
+/* Borders */
+$uni-border-color: #dee2e6;
+
+/* Fonts */
+$uni-font-size-sm: 12px;
+$uni-font-size-base: 14px;
+$uni-font-size-lg: 16px;
+$uni-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
+
+/* Spacing */
+$uni-spacing-col-sm: 5px;
+$uni-spacing-col-base: 10px;
+$uni-spacing-col-lg: 15px;
+$uni-spacing-row-sm: 5px;
+$uni-spacing-row-base: 10px;
+$uni-spacing-row-lg: 15px;
+
+/* Radius */
+$uni-border-radius-sm: 2px;
+$uni-border-radius-base: 4px;
+$uni-border-radius-lg: 8px;
+$uni-border-radius-circle: 50%;
+
+/* Box Shadow (Example - can be customized) */
+$uni-box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.05);
+$uni-box-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+/*
+  Premium Feel & A-Share Stock Tool Specific Variables
+  These can override or complement uni-app's defaults if needed,
+  or be defined as CSS custom properties for dynamic theming.
+*/
+
+/* Light Theme (can be explicitly defined or inherit from above) */
+:root { /* Or a specific class like .theme-light */
+  --app-bg-color: #f0f2f5; /* Overall app background */
+  --card-bg-color: #ffffff;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --card-border-color: #e0e0e0;
+
+  --header-bg-color: #ffffff;
+  --header-text-color: #333333;
+  --header-border-color: #e0e0e0;
+
+  --sidebar-bg-color: #2c3e50; /* Example: Dark sidebar */
+  --sidebar-text-color: #ecf0f1;
+  --sidebar-hover-bg-color: #34495e;
+  --sidebar-active-bg-color: #1abc9c;
+  --sidebar-border-color: #34495e;
+  --sidebar-icon-color: #ecf0f1;
+
+  --text-color-primary: #333333;
+  --text-color-secondary: #555555;
+  --text-color-tertiary: #777777;
+  --text-color-link: #007bff;
+
+  --positive-color: #28a745; /* Green for gains */
+  --negative-color: #dc3545; /* Red for losses */
+  --neutral-color: #6c757d;  /* Grey for neutral status */
+
+  --search-border-color: #cccccc;
+  --search-focus-border-color: #007bff;
+  --search-icon-color: #777777;
+
+  --action-button-hover-bg: #f0f0f0;
+  --notification-badge-bg: #e74c3c;
+
+  --trendline-bg-color: #f0f0f0; /* Placeholder for mini charts */
+}
+
+
+/* Dark Theme (Example - define variables for dark mode) */
+/* This can be applied via a class on the root element, e.g., <body class="theme-dark"> */
+/*
+.theme-dark {
+  --app-bg-color: #121212;
+  --card-bg-color: #1e1e1e;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --card-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --card-border-color: #2c2c2c;
+
+  --header-bg-color: #1e1e1e;
+  --header-text-color: #e0e0e0;
+  --header-border-color: #2c2c2c;
+
+  --sidebar-bg-color: #1e1e1e; // Example: Dark sidebar matching app dark theme
+  --sidebar-text-color: #e0e0e0;
+  --sidebar-hover-bg-color: #2c2c2c;
+  --sidebar-active-bg-color: #007bff; // Adjust active color for dark theme
+  --sidebar-border-color: #2c2c2c;
+  --sidebar-icon-color: #e0e0e0;
+
+  --text-color-primary: #e0e0e0;
+  --text-color-secondary: #b0b0b0;
+  --text-color-tertiary: #888888;
+  --text-color-link: #3498db; // Brighter blue for dark backgrounds
+
+  --positive-color: #20c997; // Brighter green for dark theme
+  --negative-color: #f86c6b; // Brighter red for dark theme
+  --neutral-color: #adb5bd;
+
+  --search-border-color: #444444;
+  --search-focus-border-color: #3498db;
+  --search-icon-color: #aaaaaa;
+
+  --action-button-hover-bg: #2c2c2c;
+  --notification-badge-bg: #e74c3c; // Badge color might remain similar
+
+  --trendline-bg-color: #2c2c2c;
+}
+*/
+
+/* Global utility classes (optional) */
+.text-positive {
+  color: var(--positive-color, $uni-color-success);
+}
+
+.text-negative {
+  color: var(--negative-color, $uni-color-error);
+}
+
+.text-bold {
+  font-weight: bold;
+}
+```
+
+**Note:** I've added some example CSS custom properties (`:root` and `.theme-dark`) directly into `uni.scss` for theme definition. In a more complex setup, these might be in separate files and imported here. The UniApp framework makes variables defined with `$` (SCSS variables) available globally in `<style lang="scss">` blocks. CSS custom properties (variables with `--`) are standard CSS and can be dynamically changed (e.g., for theming).

@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // Modern JavaScript features
+    "module": "ESNext", // Modern module system
+    "strict": true, // Enable all strict type-checking options
+    "jsx": "preserve", // Preserve JSX for Vue compiler to handle
+    "esModuleInterop": true, // Enables compatibility with CommonJS modules
+    "skipLibCheck": true, // Skip type checking of declaration files (node_modules)
+    "moduleResolution": "node", // How modules get resolved (like Node.js)
+    "resolveJsonModule": true, // Allow importing .json files
+    "noUnusedLocals": true, // Report errors on unused local variables
+    "noUnusedParameters": true, // Report errors on unused parameters
+    "noImplicitReturns": true, // Report error when not all code paths in function return a value
+    "baseUrl": ".", // Base directory for resolving non-absolute module names
+    "paths": {
+      "@/*": ["src/*"] // Path mapping: @/ refers to src/
+    },
+    "lib": ["ESNext", "DOM", "DOM.Iterable"], // Standard library files to be included
+    "types": [
+      "@dcloudio/types", // UniApp specific types
+      "vite/client"      // Vite client types for environment variables, HMR etc.
+      // Add other specific types if needed, e.g., "node" if using Node.js globals
+    ],
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "sourceMap": true, // Generate sourcemaps for debugging
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
+    "allowSyntheticDefaultImports": true // Allow default imports from modules with no default export
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "vite.config.ts" // Include Vite config if it's in TypeScript
+    // Add other paths to include if necessary
+  ],
+  "exclude": [
+    "node_modules",
+    "dist", // Exclude build output directory
+    "**/*.spec.ts", // Exclude test files if any
+    "**/*.test.ts"
+  ],
+  "vueCompilerOptions": { // Specific options for Vue's TypeScript integration (Volar)
+    // "experimentalDisableTemplateSupport": true, // If you face issues with Volar template type checking
+    // "target": 3, // Vue version
+  }
+}

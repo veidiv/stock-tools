@@ -1,0 +1,107 @@
+{
+  "name": "AShareStockTool",
+  "appid": "__UNI__STOCKAPP", // Replace with your actual UniApp AppID later
+  "description": "An A-share stock analysis and tracking tool.",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false, // If true, converts px to rpx. Usually false for Vue 3 + Vite.
+  /* 5+ App specifics */
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-app",
+    "compilerVersion": 3,
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true,
+      "delay": 0
+    },
+    /* Module permissions */
+    "modules": {
+      /* Add required modules here, e.g., "Charts", "Maps" if needed */
+    },
+    /* Platform specific configurations */
+    "distribute": {
+      /* Android specific */
+      "android": {
+        "permissions": [
+          "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+          "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>"
+          // Add other permissions as needed
+        ],
+        "minSdkVersion": 21
+      },
+      /* iOS specific */
+      "ios": {
+        "dSYMs": false
+        // "privacyDescription": { // Example for iOS privacy descriptions
+        //   "NSPhotoLibraryUsageDescription": "Access photos for profile pictures."
+        // }
+      },
+      /* SDK Configurations */
+      "sdkConfigs": {
+        /* e.g., for uniPush, maps, etc. */
+      }
+    }
+  },
+  /* QuickApp specifics */
+  "quickapp": {},
+  /* MP (Mini Program) specifics */
+  "mp-weixin": {
+    "appid": "", // WeChat Mini Program AppID
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "minified": true,
+      "postcss": true
+    },
+    "usingComponents": true
+    // "permission": { // Permissions for WeChat Mini Program
+    //   "scope.userLocation": {
+    //     "desc": "Your location is used for nearby services."
+    //   }
+    // }
+  },
+  "mp-alipay": {
+    "usingComponents": true
+  },
+  "mp-baidu": {
+    "usingComponents": true
+  },
+  "mp-toutiao": {
+    "usingComponents": true
+  },
+  "uniStatistics": { // UniApp statistics service
+    "enable": false // Disable or configure as needed
+  },
+  "vueVersion": "3", // Specify Vue version
+  /* H5 specifics */
+  "h5": {
+    "title": "A-Share Stock Tool",
+    "router": {
+      "mode": "hash", // "hash" or "history"
+      "base": "/"
+    },
+    "optimization":{
+      "treeShaking":{
+          "enable": true
+      }
+    }
+    // "publicPath": "/" // Base path for H5 deployment
+    // "devServer": {
+    //   "port": 8080,
+    //   "disableHostCheck": true,
+    //   "proxy": { // Example proxy for H5 development
+    //     "/api": {
+    //       "target": "http://your-backend-api.com",
+    //       "changeOrigin": true,
+    //       "secure": false,
+    //       "pathRewrite": {
+    //         "^/api": ""
+    //       }
+    //     }
+    //   }
+    // }
+  },
+  "fallbackLocale": "en" // Default locale if internationalization is used
+}
