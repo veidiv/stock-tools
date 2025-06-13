@@ -152,6 +152,10 @@ $uni-box-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
 .text-bold {
   font-weight: bold;
 }
-```
 
-**Note:** I've added some example CSS custom properties (`:root` and `.theme-dark`) directly into `uni.scss` for theme definition. In a more complex setup, these might be in separate files and imported here. The UniApp framework makes variables defined with `$` (SCSS variables) available globally in `<style lang="scss">` blocks. CSS custom properties (variables with `--`) are standard CSS and can be dynamically changed (e.g., for theming).
+/*
+**Note:** I've added some example CSS custom properties (`:root` and `.theme-dark`) directly into `uni.scss` for theme definition.
+In a more complex setup, these might be in separate files and imported here.
+The UniApp framework makes variables defined with `$` (SCSS variables) available globally in `<style lang="scss">` blocks.
+CSS custom properties (variables with `--`) are standard CSS and can be dynamically changed (e.g., for theming).
+*/
